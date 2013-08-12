@@ -1,0 +1,17 @@
+defaults: &defaults
+  min_messages: warning
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *defaults
+  database: uniqueness_development
+
+test:
+  <<: *defaults
+  database: uniqueness_test
+
+production:
+  <<: *defaults
+  database: uniqueness_production
