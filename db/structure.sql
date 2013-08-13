@@ -120,7 +120,7 @@ ALTER TABLE ONLY lists ALTER COLUMN id SET DEFAULT nextval('lists_id_seq'::regcl
 --
 
 ALTER TABLE ONLY list_items
-    ADD CONSTRAINT list_item_position UNIQUE (list_id, "position");
+    ADD CONSTRAINT list_item_position UNIQUE (list_id, "position") DEFERRABLE;
 
 
 --
@@ -157,3 +157,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130812191250');
 INSERT INTO schema_migrations (version) VALUES ('20130812191432');
 
 INSERT INTO schema_migrations (version) VALUES ('20130813194921');
+
+INSERT INTO schema_migrations (version) VALUES ('20130813195839');

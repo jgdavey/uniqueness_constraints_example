@@ -6,6 +6,7 @@ class ListItem < ActiveRecord::Base
 
   def self.update_positions(ids)
     transaction do
+      connection.execute "set constraints list_item_position deferred"
       ids.each_with_index do |id, index|
         where(id: id).update_all(position: index + 1)
       end
