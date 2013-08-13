@@ -116,6 +116,14 @@ ALTER TABLE ONLY lists ALTER COLUMN id SET DEFAULT nextval('lists_id_seq'::regcl
 
 
 --
+-- Name: list_item_position; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY list_items
+    ADD CONSTRAINT list_item_position UNIQUE (list_id, "position");
+
+
+--
 -- Name: list_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -147,3 +155,5 @@ SET search_path TO "$user",public;
 INSERT INTO schema_migrations (version) VALUES ('20130812191250');
 
 INSERT INTO schema_migrations (version) VALUES ('20130812191432');
+
+INSERT INTO schema_migrations (version) VALUES ('20130813194921');
